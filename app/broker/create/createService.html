@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Broker-madera</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+    <link rel="stylesheet" href="createService.css">
+
+</head>
+
+<body>
+<div id="vueApp">
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header">
+            <div class="mdl-layout__header-row">
+                <!-- Title -->
+                <span class="mdl-layout-title">Broker-madera</span>
+                <!-- Add spacer, to align navigation to the right -->
+                <div class="mdl-layout-spacer"></div>
+                <!-- Navigation. We hide it in small screens. -->
+                <nav class="mdl-navigation mdl-layout--large-screen-only">
+                    <a class="mdl-navigation__link" href="../serviceList/index.html"><i class="material-icons">build</i>
+                        MicroServices</a>
+                    <a class="mdl-navigation__link" href="#" click.stop="loadUrls"><i class="material-icons">cached</i>
+                        Rafraichir les URL</a>
+                    <a class="mdl-navigation__link is-active" href="createService.html">
+
+                        <i class="material-icons">code</i> Ajouter un service
+
+                    </a>
+
+
+                </nav>
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <span class="mdl-layout-title">Broker-madera</span>
+            <nav class="mdl-navigation">
+                 <a class="mdl-navigation__link" href="../serviceList/index.html"><i class="material-icons">build</i>
+                        MicroServices</a>
+                <a class="mdl-navigation__link" href="#" click.stop="loadUrls"><i class="material-icons">cached</i>
+                    Rafraichir les URL</a>
+                <a class="mdl-navigation__link" href="#" click.stop="addMs"><i class="material-icons">code</i> Ajouter
+                    un service</a>
+            </nav>
+        </div>
+        <main class="mdl-layout__content">
+            <div class="page-content">
+            </div>
+
+            </br>
+            <center>
+                <div v-if="showSuccessNotification === true">
+                   <div class="alert alert-success">
+  <strong>Service</strong> ajouté au catalogue avec succés
+</div>
+                </div>
+                <!-- Wide card with share menu button -->
+                <div class="demo-card-wide mdl-card mdl-shadow--2dp">
+                    <div class="mdl-card__title">
+                        <center><h2 class="mdl-card__title-text">Ajouter un service au catalogue</h2></center>
+                    </div>
+                    <div class="mdl-card__supporting-text">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input v-model="newService.name" class="mdl-textfield__input" type="text" placeholder="Nom du service" id="nameService">
+                            
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input  v-model="newService.url" class="mdl-textfield__input" type="text" placeholder="Url du service" id="urlService">
+                         
+                        </div>
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input  v-model="newService.description" class="mdl-textfield__input" type="text" placeholder="Description du service" id="descriptionService">
+                        
+                        </div>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <a v-on:click.capture="addNewService()" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                            Valider
+                        </a>
+                    </div>
+                    <div class="mdl-card__menu">
+                        <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+                            <i class="material-icons">share</i>
+                        </button>
+                    </div>
+                </div>
+
+            </center>
+
+        </main>
+    </div>
+
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.8/vue.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.1.16/vue-resource.min.js'></script>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.1.1.min.js"
+            integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="createService.js"></script>
+</body>
+</html>
